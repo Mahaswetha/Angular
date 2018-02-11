@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.min.js"></script>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myCtrl',function($scope){
+$scope.firstname="swetha";
+$scope.lastname="nagaraj";
+
+$scope.getvalues=function(){
+	alert("hi");
+	$scope.details=true;
+	return $scope.data=$scope.firstname + $scope.gender;
+}
+});
+</script>
+
+<head>
+<title>REGISTRATION FORM</title>
+</head>
+<body>
+<CENTER>
+<h1 style="color:tomato;">REGISTRATION FORM</H1></CENTER>
+<div ng-app="myApp"ng-controller="myCtrl">
+First Name:<input type="text" ng-model="firstname"><br>
+<br><br>Last Name:<input type="text"ng-model="lastname"><br>
+<br><br><br>
+ADRESS:
+<textarea name="message"rows="3"cols="20" required ng-model="message">
+</textarea>
+<BR><br>
+GENDER:
+<input type="radio"ng-model="gender"value="male">male
+<input type="radio"ng-model="gender"value="female">female<BR><BR>
+COURSE:
+
+<select ng-model="myVar">
+<option value="IT">IT
+<option value="CSE">CSE
+<option value="BME">BME
+<option value="ECE">ECE
+</select>
+
+COUNTRY:
+
+Select a country:
+<select ng-model="myVar">
+<option value="INDIA">INDIA
+<option value="PAKISTHAN">PAKISTHAN
+<option value="CHINA">CHINA
+<option value="ITALY">ITALY
+</select>
+<CENTER>
+<button type="button" ng-click="getvalues();">SUBMIT</button>
+<button ng-click="count = count + 1" ng-init="count=0">OK</button>
+
+</CENTER>
+<div ng-show="details">
+view your {{data}}
+</div>
+</div>
+</body>
+</html>
